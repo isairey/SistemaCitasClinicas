@@ -1,107 +1,95 @@
-# Appointment Management System for Clinics  #
+# 🏥 Sistema de Gestión de Citas para Clínicas
 
-An Appointment Management System for clinics developed with the help of following technologies
+<p align="center">
+  <img src="https://img.shields.io/badge/Estado-Activo-success?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Versión-1.0-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Licencia-Educativa-orange?style=for-the-badge">
+</p>
 
-* Codeigniter v3.1.10
-* MySQL
-* Bootstrap v3.3.7
-* jQuery v2.2.4
-* jQuery UI v1.12.1
-* Full Calendar
+<p align="center">
+  <img src="https://img.shields.io/badge/CodeIgniter-3.1.10-EE4623?style=for-the-badge&logo=codeigniter&logoColor=white">
+  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+  <img src="https://img.shields.io/badge/Bootstrap-3.3.7-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+  <img src="https://img.shields.io/badge/jQuery-2.2.4-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
+  <img src="https://img.shields.io/badge/jQuery_UI-1.12.1-FFCA28?style=for-the-badge&logo=jqueryui&logoColor=black">
+  <img src="https://img.shields.io/badge/FullCalendar-JS-3788D8?style=for-the-badge">
+</p>
 
-### Current Functionality ###
+---
 
-#### Back Office Application
-* Appointment Module: <br>
-CRUD operations for appointment and search appointments by applying **date, visit time and MR-Number** filters.
-Note: Doctor name and morning/evening shift time will only appear in the add/edit section of appointment. When a doctor is created in the doctor module and weekly schedule is added in the schedule module.
-* Doctor Module
-CRUD operations for doctor and search doctors by applying **doctor name, specialization and mobile number** filters.
-  * Doctor Specialization Module
-  Its a sub-module of Doctors Module. It has CRUD operations for doctor specializations. These specializations associate with doctor e.g. John Doe's specialization is General Surgeon.
-* Patient Module
-CRUD operations for patients and search patients by applying **mobile number, father name and MR-Number filter.** filters.
-* Schedule Module
-Add weekly schedule of doctor.
-* Prescription Module
-It contains prescriptions for patients. PDF of prescription is available for download in this module.  
-* Admin Module: <br>
-Add new administrator users for admin panel.
-* Dashboard: <br>
-User can search appointments for specific date by applying **time** and **doctor name** filters.
+## 🏥 Descripción
 
-#### Front Office App
+Sistema de gestión de citas para clínicas desarrollado con tecnologías modernas para facilitar la administración de pacientes, doctores y consultas médicas.  
+Permite gestionar citas, historiales y procesos administrativos desde una sola plataforma.
 
-There are two types of patient i.e. A Returning Patient and New Patient.
-For both patient types fill the information.
-#####How to schedule an appointment?
-First, select an appointment date. Then, in the doctor dropdown available doctors at the specific appointment date will appear.
-After selecting the doctor choose the appointment shift i.e. evening or morning by clicking on the checkbox and select the time.
+---
 
+## 🚀 Funcionalidad Actual
 
-### Note: 
-Doctors and Schedule shift will only appear 
-in the dropdown of front office application. If you 
-add doctors and their associated schedules from the 
-back office application or admin panel.
+### 🏢 Aplicación de Back Office
 
-You have to add weekly schedules for doctor. 
-Please check <a href="#suggestions">suggestions</a> in the bottom of this file.  
+#### 📅 Módulo de Citas
+Operaciones CRUD para citas y búsqueda mediante filtros:
+- Fecha
+- Hora de visita
+- Número MR (historial médico)
 
-### How to Install ###
+---
 
-##### Clone the repo with #####
+#### 👨‍⚕️ Módulo de Doctores
+- CRUD de doctores  
+- Búsqueda por:
+  - Nombre  
+  - Especialización  
+  - Teléfono  
 
-`git clone https://github.com/shery089/appointment-management-system.git`
+##### 🩺 Especialización de Doctores
+Submódulo para gestionar especialidades médicas.
 
-##### Import the DB #####
+---
 
-`ams.sql` is the DB file can be find inside the database folder in the root directory of this repo.
+#### 🧑‍🦽 Módulo de Pacientes
+- CRUD de pacientes  
+- Búsqueda por:
+  - Teléfono  
+  - Nombre del padre  
+  - Número MR  
 
-##### Install PHP dependencies via composer #####
+---
 
-`composer install`
+#### 🗓️ Módulo de Horarios
+- Configuración de horarios semanales de doctores  
 
-## Setup Virtual Host
+---
 
-Add this entry in your server Virtual Host file. Example: For apache the file is httpd-vhosts.conf
+#### 💊 Módulo de Prescripciones
+- Recetas médicas  
+- Descarga en PDF  
 
-Modify the settings according to your needs.
+---
 
-`<VirtualHost *:80>`
+#### ⚙️ Módulo de Administradores
+- Gestión de usuarios del sistema  
 
-    DocumentRoot "C:/xampp/htdocs/appointment-management-system"
-    ServerName local.ams.com
-    ErrorLog "logs/local.ams.com-error.log"
-    CustomLog "logs/local.ams.com-access.log" common
-`</VirtualHost>`
+---
 
-* Add **ServerName** entry in your operating system hosts file.
-**Example:** `127.0.0.1  		local.ams.com`
+#### 📊 Dashboard
+- Búsqueda de citas por fecha  
+- Filtros por hora y doctor  
 
+---
 
-* Turn on `rewrite_module` 
+### 🏥 Aplicación Front Office
 
-## Setup Environment
+- Registro de pacientes nuevos y recurrentes  
+- Agendamiento de citas  
+- Selección de doctor y horario  
 
-Rename the `.env-example` file to `.env` file and modify the variables according to your environment.
+---
 
-## Back Office URL 
-`ServerName/a/login`
-**Example:** `local.ams.com/a/login`
+## ⚙️ Instalación
 
-## Credentials:
-
-**Email: john.doe@example.com**
-
-**Password: 12345678**
-
-## Front Office URL 
-`ServerName/f/home`
-**Example:** `local.ams.com/f/home`
-
-##Suggestions:
-
-If the doctors schedule is always the same for your clinic. Then, create and once in a week run a cronjob to add weekly schedules of doctor. Otherwise, change the schedule module according to your needs.
-
-Good Luck!
+```bash
+git clone https://github.com/isairey/SistemaCitas.git
+cd appointment-management-system
+composer install
